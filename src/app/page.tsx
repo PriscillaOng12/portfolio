@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer';
 import { Hero } from '@/components/hero';
 import { Navigation } from '@/components/navigation';
 import { ProductPhilosophy } from '@/components/product-philosophy';
-import { ProjectsEnhanced } from '@/components/projects-enhanced';
+import { Projects } from '@/components/projects';
 import { Skills } from '@/components/skills';
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <About />
         <ProductPhilosophy />
-        <ProjectsEnhanced />
+        <Projects />
         <Skills />
         <Contact />
       </main>
