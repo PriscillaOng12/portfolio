@@ -31,13 +31,10 @@ export function Hero() {
               className="mb-6"
             >
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight">
-                Priscilla Ong
+                I build products end-to-end — from user insight → design → code.
               </h1>
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-4">
                 Software Engineer & Product Manager
-              </p>
-              <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl">
-                CS/Econ student at Dartmouth College
               </p>
             </motion.div>
 
@@ -47,15 +44,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8"
             >
-              <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl">
-                I'm a brain tumor survivor who turned a frustrating patient experience into 
-                building <span className="font-semibold text-blue-600">MediSync</span>—a 
-                HIPAA-compliant platform now piloting at 2 hospitals. Currently researching 
-                AI bias in large language models at Dartmouth while building quantitative 
-                trading systems at WorldQuant that amplified portfolio returns by 15%.
-              </p>
-              <p className="text-md text-gray-600 dark:text-gray-400 mt-4">
-                I love diving deep into hard problems, learning fast, and building things that matter.
+              <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mb-6">
+                After beating a brain tumor, I co-founded MediSync to help chronic-care patients stay on track. 
+                I love turning messy problems into clean products, from hospital pilots to high-performance trading sims.
               </p>
             </motion.div>
 
@@ -69,16 +60,26 @@ export function Hero() {
                 onClick={scrollToProjects}
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                View My Projects
+                View Projects
               </button>
-              <a
-                href="/Ong,Priscilla_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-full font-medium transition-colors"
-              >
-                Download Resume
-              </a>
+              <div className="flex gap-2">
+                <a
+                  href="/resumes/Priscilla_Ong_SWE_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-full font-medium transition-colors text-sm"
+                >
+                  Download SWE Resume
+                </a>
+                <a
+                  href="/resumes/Priscilla_Ong_PM_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-full font-medium transition-colors text-sm"
+                >
+                  Download PM Resume
+                </a>
+              </div>
             </motion.div>
 
             {/* Contact Links */}

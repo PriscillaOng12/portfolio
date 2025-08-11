@@ -208,18 +208,42 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center">
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Available for interviews and ready to start immediately
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">
+                Recruiter Resources
+              </h4>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 text-center text-sm">
+                Everything you need for evaluation and next steps
               </p>
-              <a
-                href="/Ong,Priscilla_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-              >
-                Download Resume
-              </a>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="/resumes/Priscilla_Ong_SWE_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm"
+                >
+                  Download SWE Resume
+                </a>
+                <a
+                  href="/resumes/Priscilla_Ong_PM_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors text-sm"
+                >
+                  Download PM Resume
+                </a>
+                <a
+                  href="/recruiter-pack/Priscilla_Ong_Recruiter_Pack.zip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-sm"
+                >
+                  📎 Download Recruiter Pack
+                </a>
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
+                Pack includes: SWE resume, PM resume, portfolio summary
+              </p>
             </div>
           </motion.div>
         </div>
