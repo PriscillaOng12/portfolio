@@ -10,14 +10,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Priscilla Ong | Software Engineer & Product Manager",
-  description: "CS/Econ student and brain tumor survivor who turned personal healthcare challenges into building MediSync, a HIPAA-compliant platform now piloting at 2 hospitals—while researching how to mitigate social biases in GPT-4",
-  keywords: ["software engineer", "product manager", "dartmouth", "medisync", "worldquant", "brain", "quantitative research"],
+  description: "CS/Econ student who builds products end-to-end—from user insight to design to code. Co-founded MediSync (hospital pilots), quantitative trading at WorldQuant, seeking Summer 2025 SWE/PM internships at FAANG+.",
+  keywords: ["software engineer", "product manager", "dartmouth", "medisync", "worldquant", "aegis health", "ai", "healthcare", "trading", "internship", "faang"],
   authors: [{ name: "Priscilla Ong" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
-    title: "Priscilla Ong | Software Engineer & Product Manager",
-    description: "CS/Econ student and brain tumor survivor building healthcare technology and ML solutions",
+    title: "Priscilla Ong | Building Products End-to-End",
+    description: "Software Engineer & Product Manager building solutions from healthcare AI to high-performance trading systems. Open for Summer 2025 internships.",
     type: "website",
     locale: "en_US",
   },

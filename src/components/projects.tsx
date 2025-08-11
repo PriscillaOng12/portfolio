@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Target, Code2, FileText, X, Play, TrendingUp, Users, Zap, Database, Brain, DollarSign } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Project {
   id: string;
@@ -81,6 +81,51 @@ const techIcons: Record<string, { icon: string; color: string }> = {
 };
 
 const projects: Project[] = [
+  {
+    id: 'aegis-health',
+    title: 'Aegis Health — AI Symptom & Wearable Flare-Up Predictor',
+    oneLiner: 'AI platform predicting 48-hour flare-ups for chronic pain patients using wearables and symptom logs',
+    category: 'Healthcare',
+    topMetrics: ['<200ms p95 latency', '+5-7% adherence (pilot, N=25)', '~150k snapshots'],
+    topTech: ['FastAPI', 'PyTorch', 'React Native', 'Cloud Run', 'BigQuery'],
+    techStack: [
+      { name: 'FastAPI', icon: 'fastapi', level: 'expert', yearsUsed: 2 },
+      { name: 'PyTorch', icon: 'pytorch', level: 'advanced', yearsUsed: 2 },
+      { name: 'React Native', icon: 'react', level: 'expert', yearsUsed: 3 },
+      { name: 'PostgreSQL', icon: 'postgresql', level: 'advanced', yearsUsed: 3 },
+      { name: 'Google Cloud', icon: 'googlecloud', level: 'intermediate', yearsUsed: 1 },
+      { name: 'BigQuery', icon: 'googlebigquery', level: 'intermediate', yearsUsed: 1 }
+    ],
+    image: '/projects/aegis-health.jpg',
+    featured: true,
+    quickStats: {
+      impact: 'Prevented "bad days" for chronic pain patients through calibrated predictions',
+      tech: 'End-to-end AI platform with <200ms p95 API latency',
+      timeline: '5 months (concept to pilot deployment)'
+    },
+    links: {
+      liveDemo: 'https://aegis-health-demo.vercel.app',
+      github: 'https://github.com/username/aegis-health',
+      productStrategy: '/aegis-product-strategy',
+      technicalDocs: '/aegis-technical-docs'
+    },
+    fullDetails: {
+      problemStatement: 'Chronic pain patients lack timely, interpretable guidance for flare-up prevention. Clinicians need fast triage support. Current solutions are reactive rather than predictive.',
+      solution: 'Built AI platform using wearable data + symptom logs to predict 48-hour flare-ups. Focuses on speed, interpretability, and user trust with real-time risk updates.',
+      results: [
+        '+5–7% adherence uplift vs control weeks (pilot, N=25)',
+        '−8–10% false alerts through calibrated predictions',
+        'p95 API latency <200ms with 70-80ms model inference',
+        '99%+ crash-free rate across ~150k wearable snapshots'
+      ],
+      techHighlights: [
+        'Two-service architecture on Cloud Run with event-driven ETL pipeline',
+        'Per-user baseline drift handling and model calibration techniques',
+        'Warm model instances with feature caching and msgpack serialization',
+        'OpenTelemetry + Prometheus observability with canary deployments'
+      ]
+    }
+  },
   {
     id: 'medisync',
     title: 'MediSync',
