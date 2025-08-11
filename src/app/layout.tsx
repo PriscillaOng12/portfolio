@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   description: "CS/Econ student who builds products end-to-end—from user insight to design to code. Co-founded MediSync (hospital pilots), quantitative trading at WorldQuant, seeking Summer 2025 SWE/PM internships at FAANG+.",
   keywords: ["software engineer", "product manager", "dartmouth", "medisync", "worldquant", "aegis health", "ai", "healthcare", "trading", "internship", "faang"],
   authors: [{ name: "Priscilla Ong" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Priscilla Ong | Building Products End-to-End",
@@ -21,6 +20,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
