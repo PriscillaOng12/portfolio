@@ -31,10 +31,10 @@ export function Hero() {
               className="mb-6"
             >
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight">
-                I build products end-to-end — from user insight → design → code.
+                Priscilla Ong
               </h1>
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-4">
-                Software Engineer & Product Manager
+                CS + Econ Student at Dartmouth College | Builder of AI-Driven Products
               </p>
             </motion.div>
 
@@ -45,8 +45,17 @@ export function Hero() {
               className="mb-8"
             >
               <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mb-6">
-                After beating a brain tumor, I co-founded MediSync to help chronic-care patients stay on track. 
-                I love turning messy problems into clean products, from hospital pilots to high-performance trading sims.
+                I'm a brain tumor survivor who turned a frustrating patient experience into building{' '}
+                <button
+                  onClick={scrollToProjects}
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline underline-offset-2 transition-colors font-medium"
+                >
+                  Aegis Health
+                </button>
+                {' '}— an AI-powered platform piloting at 2 hospitals to help chronic-care patients stay on track. Currently researching AI bias in LLMs at Dartmouth and exploring how intelligent systems can improve decision-making in healthcare and beyond.
+              </p>
+              <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl">
+                I love diving deep into hard problems, learning fast, and building things that matter.
               </p>
             </motion.div>
 
