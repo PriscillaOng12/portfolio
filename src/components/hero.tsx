@@ -45,17 +45,17 @@ export function Hero() {
               className="mb-8"
             >
               <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mb-6">
-                I'm a brain tumor survivor who turned a frustrating patient experience into building{' '}
+                Translating my challenges with brain tumor into building{' '}
                 <button
                   onClick={scrollToProjects}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline underline-offset-2 transition-colors font-medium"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline underline-offset-2 hover:underline-offset-4 transition-all duration-200 font-medium"
                 >
                   Aegis Health
                 </button>
-                {' '}— an AI-powered platform piloting at 2 hospitals to help chronic-care patients stay on track. Currently researching AI bias in LLMs at Dartmouth and exploring how intelligent systems can improve decision-making in healthcare and beyond.
+                {' '}— an AI-powered platform now beta-testing at 2 hospitals to bridge the gap between clinical expertise and actionable self-management plan for chronic-care patients. Currently researching AI bias in LLMs at Dartmouth and exploring how intelligent systems can improve systematic decision-making.
               </p>
               <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl">
-                I love diving deep into hard problems, learning fast, and building things that matter.
+                I love solving puzzles, learning fast, and building things that matter.
               </p>
             </motion.div>
 
