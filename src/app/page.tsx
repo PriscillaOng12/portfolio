@@ -3,7 +3,7 @@ import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
 import { Hero } from '@/components/hero';
 import { Navigation } from '@/components/navigation';
-import { ProductPhilosophy } from '@/components/product-philosophy';
+import { ProductPrinciples } from '@/components/product-philosophy';
 import { Projects } from '@/components/projects';
 import { Skills } from '@/components/skills';
 
@@ -14,7 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <ProductPhilosophy />
+        <ProductPrinciples />
         <Projects />
         <Skills />
         <Contact />
