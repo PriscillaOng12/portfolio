@@ -70,8 +70,9 @@ export function ProductPrinciples() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:grid-rows-2">
-          {principles.map((principle, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Top Row: First 3 principles */}
+          {principles.slice(0, 3).map((principle, index) => {
             const IconComponent = principle.icon;
             return (
               <motion.article
@@ -82,16 +83,11 @@ export function ProductPrinciples() {
                 viewport={{ once: true }}
                 role="article"
                 tabIndex={0}
-                className={`
-                  bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700
+                className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700
                   transition-all duration-150 ease-in-out cursor-pointer
                   hover:shadow-lg hover:-translate-y-1
                   focus-visible:outline-2 focus-visible:outline-blue-500 focus-visible:outline-offset-2
-                  motion-reduce:transition-none motion-reduce:hover:transform-none
-                  ${index >= 3 ? 'lg:col-span-1' : ''}
-                  ${index === 3 ? 'lg:col-start-1 lg:row-start-2' : ''}
-                  ${index === 4 ? 'lg:col-start-2 lg:row-start-2' : ''}
-                `}
+                  motion-reduce:transition-none motion-reduce:hover:transform-none"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className={`w-12 h-12 ${colorMap[principle.color as keyof typeof colorMap]} rounded-lg flex items-center justify-center flex-shrink-0`}>
@@ -110,6 +106,47 @@ export function ProductPrinciples() {
               </motion.article>
             );
           })}
+          
+          {/* Bottom Row: Last 2 principles, centered */}
+          <div className="lg:col-span-3 flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+              {principles.slice(3).map((principle, index) => {
+                const IconComponent = principle.icon;
+                const actualIndex = index + 3; // Adjust delay for animation
+                return (
+                  <motion.article
+                    key={principle.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: actualIndex * 0.1 }}
+                    viewport={{ once: true }}
+                    role="article"
+                    tabIndex={0}
+                    className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700
+                      transition-all duration-150 ease-in-out cursor-pointer
+                      hover:shadow-lg hover:-translate-y-1
+                      focus-visible:outline-2 focus-visible:outline-blue-500 focus-visible:outline-offset-2
+                      motion-reduce:transition-none motion-reduce:hover:transform-none"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`w-12 h-12 ${colorMap[principle.color as keyof typeof colorMap]} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                        <IconComponent 
+                          className="w-6 h-6 text-white" 
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        {principle.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {principle.content}
+                    </p>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
