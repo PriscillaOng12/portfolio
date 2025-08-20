@@ -1,5 +1,4 @@
 import { About } from '@/components/about';
-import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
 import { Hero } from '@/components/hero';
 import { Navigation } from '@/components/navigation';
@@ -17,7 +16,6 @@ export default function Home() {
         <ProductPrinciples />
         <Projects />
         <Skills />
-        <Contact />
       </main>
       <Footer />
     </div>
