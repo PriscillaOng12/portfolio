@@ -1,267 +1,191 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code2, Database, Cloud, Brain, BarChart3, TrendingUp, Star, CheckCircle } from 'lucide-react';
-
-interface Skill {
-  name: string;
-  level: 'Advanced' | 'Proficient' | 'Learning';
-  yearsUsed: string;
-  projectsUsed?: string[];
-}
+import { Code2, Layers, Brain, Cloud } from 'lucide-react';
 
 interface SkillCategory {
   title: string;
   icon: React.ComponentType<{ size: number; className?: string }>;
-  skills: Skill[];
+  skills: Array<{
+    name: string;
+    description: string;
+  }>;
   color: string;
-  description: string;
 }
 
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Languages I Think In',
+    title: 'Languages & Core Engineering',
     icon: Code2,
-    description: 'The tools I reach for first when solving problems',
+    color: 'from-blue-500 to-cyan-500',
     skills: [
-      { name: 'Python', level: 'Advanced', yearsUsed: '3+ years', projectsUsed: ['MediSync ML', 'Trading Algos'] },
-      { name: 'JavaScript/TypeScript', level: 'Advanced', yearsUsed: '2+ years', projectsUsed: ['LinguaAI', 'This Site'] },
-      { name: 'Java', level: 'Proficient', yearsUsed: '2 years', projectsUsed: ['Data Platform'] },
-      { name: 'SQL', level: 'Advanced', yearsUsed: '3+ years', projectsUsed: ['WorldQuant Analytics'] },
-      { name: 'C', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['Systems Programming'] },
-      { name: 'R', level: 'Learning', yearsUsed: '6 months', projectsUsed: ['Financial Modeling'] }
-    ],
-    color: 'from-blue-500 to-cyan-500'
+      { name: 'Python', description: 'NumPy, Pandas, Pydantic' },
+      { name: 'TypeScript', description: 'React, Next.js' },
+      { name: 'C++', description: 'performance-critical systems' },
+      { name: 'SQL', description: 'PostgreSQL' },
+      { name: 'Java', description: 'enterprise patterns' },
+      { name: 'C', description: 'systems programming foundations' }
+    ]
   },
   {
-    title: 'Frontend & Full-Stack',
+    title: 'Frameworks & Architectures',
+    icon: Layers,
+    color: 'from-purple-500 to-pink-500',
+    skills: [
+      { name: 'FastAPI', description: 'high-performance APIs' },
+      { name: 'Flask + WebSockets', description: 'real-time streaming' },
+      { name: 'Next.js', description: 'server components, SSR' },
+      { name: 'Apache Spark + Delta Lake', description: 'distributed data processing' },
+      { name: 'Kafka / Redpanda', description: 'streaming pipelines' },
+      { name: 'Django', description: 'ORM, REST backends' },
+      { name: 'Celery / RQ', description: 'job orchestration' }
+    ]
+  },
+  {
+    title: 'AI / ML & Data Systems',
     icon: Brain,
-    description: 'Building user experiences that actually work',
+    color: 'from-orange-500 to-red-500',
     skills: [
-      { name: 'React/Next.js', level: 'Advanced', yearsUsed: '2+ years', projectsUsed: ['LinguaAI', 'Portfolio'] },
-      { name: 'Node.js', level: 'Proficient', yearsUsed: '1.5 years', projectsUsed: ['API Backends'] },
-      { name: 'Django/FastAPI', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['MediSync Backend'] },
-      { name: 'React Native', level: 'Learning', yearsUsed: '8 months', projectsUsed: ['MediSync Mobile'] },
-      { name: 'Tailwind CSS', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['Recent Projects'] }
-    ],
-    color: 'from-purple-500 to-pink-500'
+      { name: 'PyTorch Serve', description: 'production ML inference' },
+      { name: 'Adaptive Learning Engines', description: 'personalized difficulty adjustment' },
+      { name: 'Anomaly Detection Systems', description: 'real-time symptom + data quality alerts' },
+      { name: 'Monte Carlo Simulation', description: 'risk modeling, scenario testing' },
+      { name: 'Leakage Sentinel', description: 'anti-overfitting guardrails in backtests' },
+      { name: 'Hugging Face Transformers', description: 'LLM fine-tuning' },
+      { name: 'scikit-learn', description: 'ML pipelines, feature engineering' }
+    ]
   },
   {
-    title: 'Data & Infrastructure',
-    icon: Database,
-    description: 'Making data work at scale (15TB+ daily at WorldQuant)',
+    title: 'Cloud, DevOps & Tooling',
+    icon: Cloud,
+    color: 'from-green-500 to-teal-500',
     skills: [
-      { name: 'PostgreSQL', level: 'Advanced', yearsUsed: '2+ years', projectsUsed: ['MediSync', 'Trading DB'] },
-      { name: 'Apache Spark', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['WorldQuant Pipelines'] },
-      { name: 'Redis', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['Caching Layers'] },
-      { name: 'Docker/K8s', level: 'Learning', yearsUsed: '8 months', projectsUsed: ['Deployment'] },
-      { name: 'AWS', level: 'Proficient', yearsUsed: '1.5 years', projectsUsed: ['Cloud Infrastructure'] }
-    ],
-    color: 'from-green-500 to-teal-500'
-  },
-  {
-    title: 'AI & Machine Learning',
-    icon: Brain,
-    description: 'From research papers to production models',
-    skills: [
-      { name: 'PyTorch', level: 'Advanced', yearsUsed: '2+ years', projectsUsed: ['Bias Research', 'MediSync ML'] },
-      { name: 'OpenAI APIs', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['LinguaAI Conversations'] },
-      { name: 'pandas/NumPy', level: 'Advanced', yearsUsed: '3+ years', projectsUsed: ['All Data Projects'] },
-      { name: 'scikit-learn', level: 'Proficient', yearsUsed: '2 years', projectsUsed: ['Predictive Models'] },
-      { name: 'Hugging Face', level: 'Learning', yearsUsed: '6 months', projectsUsed: ['LLM Fine-tuning'] }
-    ],
-    color: 'from-orange-500 to-red-500'
-  },
-  {
-    title: 'Finance & Trading',
-    icon: TrendingUp,
-    description: 'Managing my own $65k portfolio while building quant strategies',
-    skills: [
-      { name: 'Options Trading', level: 'Learning', yearsUsed: '1 year', projectsUsed: ['Personal Portfolio'] },
-      { name: 'Risk Management', level: 'Proficient', yearsUsed: '1.5 years', projectsUsed: ['WorldQuant Models'] },
-      { name: 'Time Series Analysis', level: 'Proficient', yearsUsed: '1 year', projectsUsed: ['ARIMA/GARCH'] },
-      { name: 'Statistical Modeling', level: 'Advanced', yearsUsed: '2+ years', projectsUsed: ['Research & Trading'] },
-      { name: 'Bloomberg Terminal', level: 'Learning', yearsUsed: '6 months', projectsUsed: ['Market Data'] }
-    ],
-    color: 'from-yellow-500 to-orange-500'
+      { name: 'Docker', description: 'containerization' },
+      { name: 'GCP Dataflow', description: 'ETL & stream processing' },
+      { name: 'Helm', description: 'Kubernetes deployments' },
+      { name: 'Prometheus + Grafana', description: 'metrics + visualization' },
+      { name: 'OpenTelemetry', description: 'tracing & observability' },
+      { name: 'Auth0', description: 'secure authentication' },
+      { name: 'PostgreSQL', description: 'SQL + PL/pgSQL' },
+      { name: 'Redis', description: 'caching, queues' }
+    ]
   }
 ];
 
-// Skill Level Component
-const SkillLevelBadge = ({ level }: { level: 'Advanced' | 'Proficient' | 'Learning' }) => {
-  const colors = {
-    Advanced: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    Proficient: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-    Learning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-  };
-
-  const icons = {
-    Advanced: <Star size={12} className="mr-1" />,
-    Proficient: <CheckCircle size={12} className="mr-1" />,
-    Learning: <TrendingUp size={12} className="mr-1" />
-  };
-
-  return (
-    <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${colors[level]}`}>
-      {icons[level]}
-      {level}
-    </span>
-  );
-};
-
-// Individual Skill Component
-const SkillCard = ({ skill, categoryColor }: { skill: Skill; categoryColor: string }) => (
+// Individual Skill Item Component
+const SkillItem = ({ skill, categoryColor }: { skill: { name: string; description: string }; categoryColor: string }) => (
   <motion.div
-    whileHover={{ scale: 1.02 }}
-    className="group/skill bg-gray-50 dark:bg-gray-700 rounded-xl p-4 hover:bg-white dark:hover:bg-gray-600 transition-all duration-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-500"
+    whileHover={{ scale: 1.02, y: -1 }}
+    className="group bg-white/80 dark:bg-gray-700/80 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-300"
   >
-    <div className="flex items-start justify-between mb-2">
-      <h4 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
-      <SkillLevelBadge level={skill.level} />
-    </div>
-    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{skill.yearsUsed}</p>
-    {skill.projectsUsed && skill.projectsUsed.length > 0 && (
-      <div className="flex flex-wrap gap-1">
-        {skill.projectsUsed.slice(0, 2).map((project, idx) => (
-          <span
-            key={idx}
-            className={`text-xs px-2 py-1 bg-gradient-to-r ${categoryColor} text-white rounded-full`}
-          >
-            {project}
-          </span>
-        ))}
-        {skill.projectsUsed.length > 2 && (
-          <span className="text-xs text-gray-500 dark:text-gray-400">
-            +{skill.projectsUsed.length - 2} more
-          </span>
-        )}
+    <div className="flex items-start justify-between">
+      <div className="flex-1">
+        <h4 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-sm">
+          {skill.name}
+        </h4>
+        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+          {skill.description}
+        </p>
       </div>
-    )}
+      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${categoryColor} mt-1 ml-2 flex-shrink-0`} />
+    </div>
   </motion.div>
 );
 
+// Category Card Component
+const CategoryCard = ({ category, index }: { category: SkillCategory; index: number }) => {
+  const IconComponent = category.icon;
+  
+  // Get gradient background based on category
+  const getGradientBg = (color: string) => {
+    switch (color) {
+      case 'from-blue-500 to-cyan-500':
+        return 'from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-700';
+      case 'from-purple-500 to-pink-500':
+        return 'from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700';
+      case 'from-orange-500 to-red-500':
+        return 'from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-700';
+      case 'from-green-500 to-teal-500':
+        return 'from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700';
+      case 'from-yellow-500 to-orange-500':
+        return 'from-yellow-50 to-orange-50 dark:from-gray-800 dark:to-gray-700';
+      default:
+        return 'from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700';
+    }
+  };
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className={`bg-gradient-to-br ${getGradientBg(category.color)} rounded-2xl p-6 h-full`}
+    >
+      {/* Category Header */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`w-10 h-10 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center`}>
+          <IconComponent size={20} className="text-white" />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-bold text-gray-900 dark:text-white text-lg leading-tight">
+            {category.title}
+          </h3>
+        </div>
+        <span className="text-xs text-gray-500 dark:text-gray-400 bg-white/60 dark:bg-gray-600/60 px-2 py-1 rounded-full">
+          {category.skills.length}
+        </span>
+      </div>
+      
+      {/* Skills List */}
+      <div className="space-y-2">
+        {category.skills.map((skill, skillIndex) => (
+          <motion.div
+            key={skill.name}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: (index * 0.1) + (skillIndex * 0.03) }}
+            viewport={{ once: true }}
+          >
+            <SkillItem skill={skill} categoryColor={category.color} />
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+// Main Skills Component
 export function Skills() {
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-gray-950">
+    <section id="skills" className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-purple-600 dark:from-white dark:to-purple-400 bg-clip-text text-transparent">
-            What I Work With
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-purple-600 dark:from-white dark:to-purple-400 bg-clip-text text-transparent">
+            Technical Expertise
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Tools and technologies I've used to solve real problems. Always learning, always building.
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Core technologies and specialized systems I use to build reliable, scalable solutions
           </p>
         </motion.div>
 
-        <div className="space-y-12">
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon;
-            return (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700"
-              >
-                {/* Category Header */}
-                <div className="flex items-start gap-4 mb-8">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} text-white`}>
-                    <IconComponent size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                      {category.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      {category.description}
-                    </p>
-                  </div>
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${category.color} text-white`}>
-                    {category.skills.length} skills
-                  </div>
-                </div>
-
-                {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: (index * 0.1) + (skillIndex * 0.05) }}
-                      viewport={{ once: true }}
-                    >
-                      <SkillCard skill={skill} categoryColor={category.color} />
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* Skills Grid - 4 Cards in Single Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skillCategories.map((category, index) => (
+            <CategoryCard key={category.title} category={category} index={index} />
+          ))}
         </div>
 
-        {/* What I'm Learning Now */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                What I'm Learning Right Now
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                The stuff I'm currently obsessing over (because there's always something new to figure out)
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl text-center">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Brain size={24} className="text-blue-600 dark:text-blue-300" />
-                </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">AI Bias Research</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Understanding how models fail in the real world</p>
-              </div>
-              
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl text-center">
-                <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <TrendingUp size={24} className="text-green-600 dark:text-green-300" />
-                </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Options Strategies</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Currently learning iron condors and covered calls</p>
-              </div>
-              
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl text-center">
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <BarChart3 size={24} className="text-purple-600 dark:text-purple-300" />
-                </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">PM Frameworks</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Diving deep into product strategy and user research</p>
-              </div>
-              
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl text-center">
-                <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Database size={24} className="text-orange-600 dark:text-orange-300" />
-                </div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Distributed Systems</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">How to make things work at WorldQuant scale</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
 }
+
