@@ -71,24 +71,14 @@ export function Hero() {
               >
                 View Projects
               </button>
-              <div className="flex gap-2">
-                <a
-                  href="/resumes/Priscilla_Ong_SWE_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-full font-medium transition-colors text-sm"
-                >
-                  Download SWE Resume
-                </a>
-                <a
-                  href="/resumes/Priscilla_Ong_PM_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-full font-medium transition-colors text-sm"
-                >
-                  Download PM Resume
-                </a>
-              </div>
+              <a
+                href="/resumes/Priscilla_Ong_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-full font-medium transition-colors text-sm"
+              >
+                Download Resume
+              </a>
             </motion.div>
 
             {/* Contact Links */}
@@ -105,13 +95,7 @@ export function Hero() {
                 <Mail size={20} />
                 <span className="hidden sm:inline">priscilla.chuhui.ong@gmail.com</span>
               </a>
-              <a
-                href="tel:+16032768328"
-                className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                <Phone size={20} />
-                <span className="hidden sm:inline">+1 (603) 276 8328</span>
-              </a>
+            
               <a
                 href="https://www.linkedin.com/in/priscilla-chuhui-ong/"
                 target="_blank"
@@ -143,7 +127,7 @@ export function Hero() {
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl ring-4 ring-white dark:ring-gray-800">
                 <Image
-                  src="/headshot copy.jpeg"
+                  src="/images/headshot.jpg"
                   alt="Priscilla Ong"
                   width={400}
                   height={400}
